@@ -1,0 +1,25 @@
+{
+    "apiVersion": "2019-04-01",
+    "type": "Microsoft.Network/virtualNetworks",
+    "name": "[variables('virtualNetworkName')]",
+    "location": "[variables('location')]",
+    "tags": {
+        "JenkinsManagedTag": "[variables('jenkinsTag')]",
+        "JenkinsResourceTag": "[variables('resourceTag')]"
+    },
+    "properties": {
+        "addressSpace": {
+            "addressPrefixes": [
+                "10.0.0.0/16"
+            ]
+        },
+        "subnets": [
+            {
+                "name": "[variables('subnetName')]",
+                "properties": {
+                    "addressPrefix": "10.0.0.0/24"
+                }
+            }
+        ]
+    }
+}

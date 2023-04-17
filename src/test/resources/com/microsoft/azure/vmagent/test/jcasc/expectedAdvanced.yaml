@@ -1,0 +1,52 @@
+- azureVM:
+    azureCredentialsId: "azure-cred"
+    cloudName: "azure"
+    cloudTags:
+    - name: "author"
+      value: "gavin"
+    deploymentTimeout: 1200
+    existingResourceGroupName: "vm-agents"
+    maxVirtualMachinesLimit: 10
+    resourceGroupReferenceType: "existing"
+    vmTemplates:
+    - agentLaunchMethod: "SSH"
+      agentWorkspace: "/opt/jenkins"
+      availabilityType:
+        availabilitySet: "vm-agents"
+      builtInImage: "Windows Server 2016"
+      credentialsId: "admin-cred"
+      diskType: "managed"
+      doNotUseMachineIfInitFails: true
+      executeInitScriptAsRoot: true
+      imageReference:
+        galleryImageDefinition: "Linux"
+        galleryImageVersion: "latest"
+        galleryName: "gallery"
+        galleryResourceGroup: "gallery"
+        gallerySubscriptionId: "e5587777-5750-4d2e-9e45-d6fbae67b8ea"
+      imageTopLevelType: "advanced"
+      initScript: |-
+        yum install -y java
+        yum install -y nodejs
+        cat /etc/hosts
+      jvmOptions: "-xmx"
+      labels: "linux"
+      location: "UK South"
+      newStorageAccountName: "agent-storage"
+      noOfParallelJobs: 1
+      nsgName: "an-nsg"
+      osDiskSize: 40
+      osType: "Linux"
+      retentionStrategy:
+        azureVMCloudRetentionStrategy:
+          idleTerminationMinutes: 40
+      storageAccountNameReferenceType: "new"
+      storageAccountType: "Standard_LRS"
+      subnetName: "jenkins"
+      templateDesc: "desc"
+      templateName: "azure"
+      usageMode: NORMAL
+      usePrivateIP: true
+      virtualMachineSize: "Standard_A2"
+      virtualNetworkName: "vm-agent"
+      virtualNetworkResourceGroupName: "vm-agent"
