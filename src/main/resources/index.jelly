@@ -1,4 +1,4 @@
 <?jelly escape-by-default='true'?>
 <div>
-    Azure plugin to provision and deprovision agents
+    Provides a pluggable storage extension for the junit plugin with a SQL database.
 </div>

@@ -1,18 +1,16 @@
-/bin
-/target
-/work
-/.checkstyle
-/.vscode
+target
 
-*.idea
-*.settings
-*.project
-*.classpath
+# mvn hpi:run
+work
+
+# IntelliJ IDEA project files
 *.iml
+*.iws
+*.ipr
+.idea
 
-nbactions-*.xml
-nb-configuration.xml
-nbactions.xml
-deployment.out
-.env
-logging.properties
+# Eclipse project files
+.settings
+.classpath
+.project
+jmh-report.json
